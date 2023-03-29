@@ -31,10 +31,20 @@ def merge_sort(words, start=0, end=None):
 
 
 def is_anagram(first_string, second_string):
-    if not first_string and not second_string:
-        return (first_string, second_string, False)
+    words_list_one = list(first_string.lower())
+    words_list_two = list(second_string.lower())
 
-    first_string_ = "".join(merge_sort(first_string.lower()))
-    second_string_ = "".join(merge_sort(second_string.lower()))
+    merge_sort(words_list_one)
+    merge_sort(words_list_two)
 
-    return (first_string_, second_string_, first_string_ == second_string_)
+    first_ordered_word = "".join(words_list_one)
+    second_ordered_word = "".join(words_list_two)
+
+    if first_ordered_word == "" or second_ordered_word == "":
+        return (first_ordered_word, second_ordered_word, False)
+
+    return (
+        first_ordered_word,
+        second_ordered_word,
+        first_ordered_word == second_ordered_word,
+    )
