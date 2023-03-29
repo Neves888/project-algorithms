@@ -23,7 +23,7 @@ def merge(words, start, mid, end):
 def merge_sort(words, start=0, end=None):
     if end is None:
         end = len(words)
-    elif (end - start) > 1:
+    if (end - start) > 1:
         mid = (start + end) // 2
         merge_sort(words, start, mid)
         merge_sort(words, mid, end)
